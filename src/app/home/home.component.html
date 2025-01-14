@@ -1,0 +1,40 @@
+<div class="toolbar">
+    <div class='logo'>
+        <span class="logo-container" (click)="scrollToSection('section1')">
+            <img class="logo-img" [src]="logoURI">
+        </span>
+    </div>
+    <div class='secciones'>
+        <div
+            class="toolbar-item"
+            [class.active]="activeSection === 'section1'"
+            (click)="scrollToSection('section1')"
+        >
+            Sección 1
+        </div>
+        <div
+            class="toolbar-item"
+            [class.active]="activeSection === 'section2'"
+            (click)="scrollToSection('section2')"
+        >
+            Sección 2
+        </div>
+        <div
+            class="toolbar-item"
+            [class.active]="activeSection === 'section3'"
+            (click)="scrollToSection('section3')"
+    
+        >
+            Sección 3
+        </div>
+    </div>
+    <div class='btn-contact'>
+        <button class="touch-btn" (click)="contactButton()">Contáctanos</button>
+    </div>
+</div>
+
+<div class="content">
+  <div id="section1" class="section">Contenido de la Sección 1</div>
+  <div id="section2" class="section">Contenido de la Sección 2</div>
+  <div id="section3" class="section">Contenido de la Sección 3</div>
+</div>
