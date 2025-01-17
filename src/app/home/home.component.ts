@@ -1,14 +1,17 @@
 import { Component, OnInit, HostListener, AfterViewInit } from '@angular/core';
+import { PresentationComponent } from '../presentation/presentation.component';
+import { ServicesComponent } from '../services/services.component';
+import { ContactComponent } from '../contact/contact.component';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [PresentationComponent, ServicesComponent, ContactComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.less'
 })
 export class HomeComponent implements OnInit, AfterViewInit{
   activeSection: string = 'section1';
-  logoURI = 'logo.png';
+  logoURI = 'nextgensoftware_logo.png';
 
   ngOnInit(): void {
     if(typeof window !== 'undefined'){
