@@ -1,7 +1,8 @@
 <div class="toolbar">
     <div class='logo'>
         <span class="logo-container" (click)="scrollToSection('section1')">
-            <img class="logo-img" [src]="logoURI">
+            <!-- <img class="logo-img" [src]="logoURI"> -->
+            <img class="logo-img" [src]="activeSection !== 'section1' ? logoURI_sc : logoURI_sc1">
         </span>
     </div>
     <div class='secciones'>
