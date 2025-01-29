@@ -1,0 +1,68 @@
+.card-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3%;
+}
+
+
+.card{
+    width: 80rem;
+    height: 31.5rem;
+    background: linear-gradient(to left, #000097, #282842);
+    color: white;
+    border-radius: 25px;
+}
+
+
+.img{
+    width: 10%;
+}
+
+.text-cont{
+    text-align: center;
+}
+
+.typed-text{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.textv{
+    text-decoration: underline;    
+}
+
+.cursor{
+    display: inline-block;
+    width: 1px;
+    animation: blink 0.8s steps(2, start) infinite;
+}
+
+@keyframes blink{
+    0%{
+        opacity: 1;
+    }
+    15%{
+        opacity: 0.75;
+    }
+    30%{
+        opacity: 0.50;
+    }
+    45%{
+        opacity: 0.25;
+    }
+    50%{
+        opacity: 0;
+    }
+    65%{
+        opacity: 0.25;
+    }
+    80%{
+        opacity: 0.50;
+    }
+    95%{
+        opacity: 0.75;
+    }
+    100%{
+        opacity: 1;
+    }
+}
