@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 
 @Component({
@@ -7,31 +7,33 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './presentation.component.html',
   styleUrl: './presentation.component.less'
 })
-export class PresentationComponent implements OnInit{
-  // words = ['developer', 'consultant', 'support'];
+export class PresentationComponent implements AfterViewInit{
   text = '';
-  phrases = ['development', 'consultant', 'support'];
+  phrases = ['consulting.', 'design.', 'support.'];
   currentPhraseIndex = 0;
   isWriting = true;
 
   ngOnInit(): void {
     // this.typeText();  
-    this.writeLast();  
+    // this.writeLast();  
+  }
+
+  ngAfterViewInit(): void {
+    this.typeText();
   }
 
   typeText(){
     let index = 0;
-    const typingSpeed = 150;  // Velocidad de escritura
-    const erasingSpeed = 100; // Velocidad de borrado
-    const delayBeforeErase = 1000; // Pausa antes de borrar
-    const delayBetweenPhrases = 500; // Pausa entre frases
+    const typingSpeed = 85;
+    const erasingSpeed = 60;
+    const delayBeforeErase = 300;
+    const delayBetweenPhrases = 200;
 
     const typePhrase = () => {
       const phrase = this.phrases[this.currentPhraseIndex];
-      index = 0; // Resetear el índice de escritura
+      index = 0;
       this.isWriting = true;
 
-      // Escribir la frase
       const typingInterval = setInterval(() => {
         if (index < phrase.length) {
           this.text += phrase[index];
@@ -46,35 +48,36 @@ export class PresentationComponent implements OnInit{
 
     const erasePhrase = () => {
       this.isWriting = false;
-      // Borrar la frase
       const erasingInterval = setInterval(() => {
         if (this.text.length > 0) {
           this.text = this.text.slice(0, -1);
         } else {
           clearInterval(erasingInterval);
-          this.currentPhraseIndex++;  // Avanzar al siguiente índice
+          this.currentPhraseIndex++;
           if (this.currentPhraseIndex < this.phrases.length) {
-            setTimeout(typePhrase, delayBetweenPhrases);  // Escribir la siguiente frase
+            setTimeout(typePhrase, delayBetweenPhrases);
           }else{
-            // setTimeout(this.writeLast, delayBetweenPhrases);
-            this.writeLast();
+            setTimeout(() =>{this.writeLast()}, delayBetweenPhrases);
           }
         }
       }, erasingSpeed);
     };
 
-    typePhrase();  // Iniciar la animación de la primera frase
+    typePhrase();
   }
 
 
   writeLast(){
-    const word: any = 'development';
-    for(let i in word){
-      setInterval(() => {
-        this.text += word[i];
-        console.log(this.text)
-      }, 500);
-    }  
+    let index = 0;
+    const typingSpeed = 85;
+    const typingInterval = setInterval(() => {
+      if(index < 'development.'.length){
+        this.text += 'development.'[index];
+        index++;
+      }else{
+        clearInterval(typingInterval);
+      }
+    }, typingSpeed);
   }
 
 }
