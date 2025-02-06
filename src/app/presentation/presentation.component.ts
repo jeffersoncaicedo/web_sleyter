@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 
 
 @Component({
@@ -13,13 +13,13 @@ export class PresentationComponent implements AfterViewInit{
   currentPhraseIndex = 0;
   isWriting = true;
 
-  ngOnInit(): void {
-    // this.typeText();  
-    // this.writeLast();  
-  }
+  images = ['nextgensoftware_logo.png', 'nextgensoftware_solo_logo.png']
+  currentIndex = 0;
+  intervalID: any;
 
   ngAfterViewInit(): void {
     this.typeText();
+    // this.startAutoSlide();
   }
 
   typeText(){
@@ -78,6 +78,26 @@ export class PresentationComponent implements AfterViewInit{
         clearInterval(typingInterval);
       }
     }, typingSpeed);
+  }
+
+  nextSlide(){
+    this.currentIndex = (this.currentIndex + 1) % this.images.length
+  }
+
+  prevSlide(){
+    this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+  }
+
+  startAutoSlide(){
+    this.intervalID = setInterval(() => {
+      this.nextSlide();
+    }, 3000);
+  }
+
+  stopAutoSlide() {
+    if (this.intervalID) {
+      clearInterval(this.intervalID);
+    }
   }
 
 }

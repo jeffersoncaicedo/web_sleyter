@@ -1,13 +1,17 @@
 <div class="card">
     <div class="card-body">
-         <img src="nextgensoftware_solo_logo.png" class="img" alt="">
+        <img src="nextgensoftware_solo_logo.png" class="img" alt="">
         <div class="text-cont">
             <span class="typed-text">At NexGen Software, we help your business thrive with custom tech solutions. We specialize in {{text}}</span>
             <span class="cursor">|</span>
         </div>
+        <div class="carousel-container" (mouseenter)="stopAutoSlide()" (mouseleave)="startAutoSlide()">
+            <button class="prev" (click)="prevSlide()">&#10094;</button>
+            <div class="carousel">
+                <img [src]="images[currentIndex]" class="carousel-image" alt="Slide">
+            </div>
+            <button class="next" (click)="nextSlide()">&#10095;</button>
+        </div>
         
-         <!-- <p class="card-text">At NexGen Software, we help your business thrive with custom tech solutions. We specialize in software development.</p> -->
     </div>
 </div>
-
-<!-- development, consulting, support, and innovative strategy design -->
