@@ -13,13 +13,12 @@ export class PresentationComponent implements AfterViewInit{
   currentPhraseIndex = 0;
   isWriting = true;
 
-  images = ['nextgensoftware_logo.png', 'nextgensoftware_solo_logo.png']
+  images = ['proyecto1.png', 'proyecto2.png', 'proyecto3.png'];
   currentIndex = 0;
   intervalID: any;
 
   ngAfterViewInit(): void {
     this.typeText();
-    // this.startAutoSlide();
   }
 
   typeText(){
@@ -91,12 +90,30 @@ export class PresentationComponent implements AfterViewInit{
   startAutoSlide(){
     this.intervalID = setInterval(() => {
       this.nextSlide();
-    }, 3000);
+    }, 7000);
   }
 
   stopAutoSlide() {
     if (this.intervalID) {
       clearInterval(this.intervalID);
+    }
+  }
+
+
+  linkProyecto(currentImg: any){
+    switch(currentImg){
+      case 'proyecto1.png':
+        console.log("Aquí me redirige al repositorio del PRIMER proyecto");
+        break;
+
+      case 'proyecto2.png':
+        console.log("Aquí me redirige al repositorio del SEGUNDO proyecto")
+        break;
+        
+      case 'proyecto3.png':
+        console.log("Aquí me redirige al repositorio del TERCER proyecto")
+        break;
+
     }
   }
 

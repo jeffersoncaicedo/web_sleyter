@@ -5,12 +5,10 @@
             <span class="typed-text">At NexGen Software, we help your business thrive with custom tech solutions. We specialize in {{text}}</span>
             <span class="cursor">|</span>
         </div>
-        <div class="carousel-container" (mouseenter)="stopAutoSlide()" (mouseleave)="startAutoSlide()">
-            <button class="prev" (click)="prevSlide()">&#10094;</button>
-            <div class="carousel">
-                <img [src]="images[currentIndex]" class="carousel-image" alt="Slide">
-            </div>
-            <button class="next" (click)="nextSlide()">&#10095;</button>
+        <div class="carousel-container" (mouseenter)="stopAutoSlide()" (mouseleave)="startAutoSlide()" (click)="linkProyecto(images[currentIndex])">
+            <!-- <button class="prev" (click)="prevSlide()">&#10094;</button> -->
+            <img [src]="images[currentIndex]" class="carousel-image" alt="Slide">
+            <!-- <button class="next" (click)="nextSlide()">&#10095;</button> -->
         </div>
         
     </div>
