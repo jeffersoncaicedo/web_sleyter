@@ -1,3 +1,4 @@
+
 <div class="toolbar">
     <div class='logo'>
         <span class="logo-container" (click)="scrollToSection('section1')">
@@ -6,31 +7,38 @@
         </span>
     </div>
     <div class='secciones'>
-        <div
-            class="toolbar-item"
-            [class.active]="activeSection === 'section1'"
-            (click)="scrollToSection('section1')"
-        >
-            Inicio
+        <div class="secciones_title">
+            <div class="title">
+                <span class="title_txt">EMBAJADA OTAKU</span>
+            </div>
         </div>
-        <div
-            class="toolbar-item"
-            [class.active]="activeSection === 'section2'"
-            (click)="scrollToSection('section2')"
-        >
-            Comunidad Japonesa en Quito
-        </div>
-        <div
-            class="toolbar-item"
-            [class.active]="activeSection === 'section3'"
-            (click)="scrollToSection('section3')"
-    
-        >
-            Comunidad Otaku en Quito
+        <div class="secciones_tool">
+            <div
+                class="toolbar-item"
+                [class.active]="activeSection === 'section1'"
+                (click)="scrollToSection('section1')"
+            >
+                Inicio
+            </div>
+            <div
+                class="toolbar-item"
+                [class.active]="activeSection === 'section2'"
+                (click)="scrollToSection('section2')"
+            >
+                Comunidad Japonesa en Quito
+            </div>
+            <div
+                class="toolbar-item"
+                [class.active]="activeSection === 'section3'"
+                (click)="scrollToSection('section3')"
+        
+            >
+                Comunidad Otaku en Quito
+            </div>
         </div>
     </div>
     <div class='btn-contact'>
-        <button class="touch-btn" (click)="contactButton()">Contáctanos</button>
+        <button class="touch-btn" (click)="contactButton()">Contáctame</button>
     </div>
 </div>
 
@@ -39,6 +47,6 @@
   <div id="section2" class="section"> <app-services></app-services> </div>
   <div id="section3" class="section"> <app-contact></app-contact> </div>
   <div class="copy-cont">
-      <p class="copy">Copyright © 2025 NexGen Software</p>
+      <p class="copy">Copyright© 2025 NexGen Software</p>
   </div>
 </div>

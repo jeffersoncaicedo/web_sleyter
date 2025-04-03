@@ -11,8 +11,8 @@ import { ContactComponent } from '../contact/contact.component';
 })
 export class HomeComponent implements OnInit, AfterViewInit{
   activeSection: string = 'section1';
-  logoURI_sc1 = 'nextgensoftware_logo.png';
-  logoURI_sc = 'nextgensoftware_solo_logo.png';
+  logoURI_sc1 = 'logo_1.png';
+  logoURI_sc = 'logo_1.png';
 
   ngOnInit(): void {
     if(typeof window !== 'undefined'){

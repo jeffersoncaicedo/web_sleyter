@@ -1,4 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 
 @Component({
@@ -16,67 +17,16 @@ export class PresentationComponent implements AfterViewInit{
   images = ['proyecto1.png', 'proyecto2.png', 'proyecto3.png'];
   currentIndex = 0;
   intervalID: any;
+  videoUrl: SafeResourceUrl;
+  safeUrl = 'https://www.youtube.com/watch?v=5A8WGlK4xRM';
+
+  constructor(private sanitazer: DomSanitizer){
+    const youtubeUrl = 'https://www.youtube.com/watch?v=5A8WGlK4xRM';
+    this.videoUrl = this.sanitazer.bypassSecurityTrustResourceUrl(youtubeUrl);
+  }
 
   ngAfterViewInit(): void {
-    this.typeText();
-  }
-
-  typeText(){
-    let index = 0;
-    const typingSpeed = 85;
-    const erasingSpeed = 60;
-    const delayBeforeErase = 300;
-    const delayBetweenPhrases = 200;
-
-    const typePhrase = () => {
-      const phrase = this.phrases[this.currentPhraseIndex];
-      index = 0;
-      this.isWriting = true;
-
-      const typingInterval = setInterval(() => {
-        if (index < phrase.length) {
-          this.text += phrase[index];
-          index++;
-        } else {
-          clearInterval(typingInterval);
-          this.isWriting = false;
-          setTimeout(erasePhrase, delayBeforeErase);
-        }
-      }, typingSpeed);
-    };
-
-    const erasePhrase = () => {
-      this.isWriting = false;
-      const erasingInterval = setInterval(() => {
-        if (this.text.length > 0) {
-          this.text = this.text.slice(0, -1);
-        } else {
-          clearInterval(erasingInterval);
-          this.currentPhraseIndex++;
-          if (this.currentPhraseIndex < this.phrases.length) {
-            setTimeout(typePhrase, delayBetweenPhrases);
-          }else{
-            setTimeout(() =>{this.writeLast()}, delayBetweenPhrases);
-          }
-        }
-      }, erasingSpeed);
-    };
-
-    typePhrase();
-  }
-
-
-  writeLast(){
-    let index = 0;
-    const typingSpeed = 85;
-    const typingInterval = setInterval(() => {
-      if(index < 'development.'.length){
-        this.text += 'development.'[index];
-        index++;
-      }else{
-        clearInterval(typingInterval);
-      }
-    }, typingSpeed);
+    // this.typeText();
   }
 
   nextSlide(){
