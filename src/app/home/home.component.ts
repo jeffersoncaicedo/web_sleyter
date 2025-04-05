@@ -2,7 +2,7 @@ import { Component, OnInit, HostListener, AfterViewInit } from '@angular/core';
 import { PresentationComponent } from '../presentation/presentation.component';
 import { ServicesComponent } from '../services/services.component';
 import { ContactComponent } from '../contact/contact.component';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-home',
   imports: [PresentationComponent, ServicesComponent, ContactComponent],
@@ -56,7 +56,12 @@ export class HomeComponent implements OnInit, AfterViewInit{
   }
 
   contactButton(){
-    this.scrollToSection('section3');
+    // this.scrollToSection('section3');
+    Swal.fire({
+        title: "The Internet?",
+        text: "That thing is still around?",
+        icon: "question"
+      });
   }
 
 }
