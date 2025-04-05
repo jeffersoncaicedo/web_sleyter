@@ -58,10 +58,51 @@ export class HomeComponent implements OnInit, AfterViewInit{
   contactButton(){
     // this.scrollToSection('section3');
     Swal.fire({
-        title: "The Internet?",
-        text: "That thing is still around?",
-        icon: "question"
-      });
+      title: 'Formulario de Contacto',
+      html: `
+        <input id="swal-nombre" class="swal2-input" placeholder="Nombre completo">
+        <input id="swal-email" class="swal2-input" placeholder="Correo electrónico">
+        <input id="swal-telefono" class="swal2-input" placeholder="Teléfono">
+        <textarea id="swal-mensaje" class="swal2-textarea" placeholder="Mensaje adicional (opcional)"></textarea>
+      `,
+      focusConfirm: false,
+      preConfirm: () => {
+        const nombre = (document.getElementById('swal-nombre') as HTMLInputElement)?.value.trim();
+        const email = (document.getElementById('swal-email') as HTMLInputElement)?.value.trim();
+        const telefono = (document.getElementById('swal-telefono') as HTMLInputElement)?.value.trim();
+        const mensaje = (document.getElementById('swal-mensaje') as HTMLTextAreaElement)?.value.trim();
+        const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+        const telefonoRegex = /^\d{10,}$/;
+    
+        // Validaciones
+        if(!nombre && !email && !telefono){
+          Swal.showValidationMessage("Rellena todos los campos antes de continuar");
+          return false;
+        }else{
+          if (!nombre) {
+            Swal.showValidationMessage('Por favor ingresa tu nombre');
+            return false;
+          }
+          if (!email || !emailRegex.test(email)) {
+            Swal.showValidationMessage('Correo electrónico inválido');
+            return false;
+          }
+          if (!telefono || !telefonoRegex.test(telefono)) {
+            Swal.showValidationMessage('Teléfono inválido. Debe contener 10 dígitos');
+            return false;
+          }
+          
+
+        }
+        return { nombre, email, telefono, mensaje };
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log('Datos del formulario:', result.value);
+        // Aquí puedes hacer lo que necesites con los datos
+      }
+    });    
+    
   }
 
 }
