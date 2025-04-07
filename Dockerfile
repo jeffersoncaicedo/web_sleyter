@@ -16,7 +16,7 @@ FROM nginx:alpine
 COPY --from=builder /app/dist/nextsof /usr/share/nginx/html
 
 # Copia configuración personalizada de Nginx (opcional)
-# COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
