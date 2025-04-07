@@ -2,8 +2,11 @@ version: '3.8'
 
 services:
   angular-app:
+    container_name: web-sley
+    image: prod/web-sley:v1.0.0
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - "4200:80"
+    restart: unless-stopped
