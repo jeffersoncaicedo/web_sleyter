@@ -1,5 +1,5 @@
 # Etapa 1: Build de Angular
-FROM node:18 AS builder
+FROM node:16 AS builder
 
 WORKDIR /app
 
@@ -19,10 +19,10 @@ RUN echo ls -l /app/dist/nextsof
 FROM nginx:alpine
 
 # Crear carpeta destino
-RUN mkdir -p /usr/share/nginx/html
+RUN rm -rf /usr/share/nginx/html/*
 
 # Copiar build de Angular
-COPY --from=builder /app/dist/ /usr/share/nginx/html
+COPY --from=build /app/dist/nextsof /usr/share/nginx/html
 
 # Verificación
 RUN echo "✅ Contenido copiado al contenedor:" 
