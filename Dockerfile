@@ -7,7 +7,7 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
-RUN npm run build -- --configuration production
+RUN npm run build --prod
 
 # Validación: mostrar estructura de /app/dist
 RUN echo "📁 Contenido de /app/dist:" 
@@ -22,7 +22,7 @@ FROM nginx:alpine
 RUN mkdir -p /usr/share/nginx/html
 
 # Copiar build de Angular
-COPY --from=builder /app/dist/nextsof /usr/share/nginx/html
+COPY --from=builder /app/dist/ /usr/share/nginx/html
 
 # Verificación
 RUN echo "✅ Contenido copiado al contenedor:" 
