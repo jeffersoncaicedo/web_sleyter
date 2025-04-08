@@ -20,4 +20,6 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
+RUN ls -la /usr/share/nginx/html && cat /usr/share/nginx/html/index.html | head -n 10
+
 CMD ["nginx", "-g", "daemon off;"]
