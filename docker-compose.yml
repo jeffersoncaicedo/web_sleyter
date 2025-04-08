@@ -20,7 +20,7 @@ services:
     networks:
       - app_network
     depends_on:
-      - web_sley  # Aquí depende del servicio `mi_app_angular`
+      - web_sley_default  # Aquí depende del servicio `mi_app_angular`
 
 networks:
   app_network:
