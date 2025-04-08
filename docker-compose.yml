@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   mi_app_angular:
     build:
