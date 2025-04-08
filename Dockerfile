@@ -10,8 +10,10 @@ COPY . .
 RUN npm run build -- --configuration production
 
 # Validación: mostrar estructura de /app/dist
-RUN echo "📁 Contenido de /app/dist:" && ls -l /app/dist && \
-    echo "📁 Contenido de /app/dist/nextsof:" && ls -l /app/dist/nextsof
+RUN echo "📁 Contenido de /app/dist:" 
+RUN echo ls -l /app/dist
+RUN echo "📁 Contenido de /app/dist/nextsof:" 
+RUN echo ls -l /app/dist/nextsof
 
 # Etapa 2: Servir con Nginx
 FROM nginx:alpine
@@ -23,7 +25,8 @@ RUN mkdir -p /usr/share/nginx/html
 COPY --from=builder /app/dist/nextsof /usr/share/nginx/html
 
 # Verificación
-RUN echo "✅ Contenido copiado al contenedor:" && ls -l /usr/share/nginx/html
+RUN echo "✅ Contenido copiado al contenedor:" 
+RUN echo ls -l /usr/share/nginx/html
 
 # Config Nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf
