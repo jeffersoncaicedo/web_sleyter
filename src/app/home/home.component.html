@@ -25,7 +25,7 @@
                 [class.active]="activeSection === 'section2'"
                 (click)="scrollToSection('section2')"
             >
-                Comunidad Japonesa en Quito
+                Influencia en el mundo
             </div>
             <div
                 class="toolbar-item"
@@ -33,7 +33,15 @@
                 (click)="scrollToSection('section3')"
         
             >
-                Comunidad Otaku en Quito
+                Comunidad Japonesa
+            </div>
+            <div
+                class="toolbar-item"
+                [class.active]="activeSection === 'section4'"
+                (click)="scrollToSection('section4')"
+        
+            >
+                Cultura Pop
             </div>
         </div>
     </div>
@@ -46,6 +54,7 @@
   <div id="section1" class="section"> <app-presentation></app-presentation> </div>
   <div id="section2" class="section"> <app-services></app-services> </div>
   <div id="section3" class="section"> <app-contact></app-contact> </div>
+  <div id="section4" class="section"> <app-kpop></app-kpop> </div>
   <div class="copy-cont">
       <p class="copy">Copyright© 2025 NexGen Software</p>
   </div>

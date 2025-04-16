@@ -12,6 +12,7 @@ export class NavbarComponent {
     {id: 'section2', name: 'Sección 2'},
     {id: 'section3', name: 'Sección 3'},
     {id: 'section4', name: 'Sección 4'},
+    {id: 'section5', name: 'Sección 5'},
   ]
 
   activeSection: string = this.sections[0].id

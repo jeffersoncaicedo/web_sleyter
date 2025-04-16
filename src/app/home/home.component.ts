@@ -3,9 +3,10 @@ import { PresentationComponent } from '../presentation/presentation.component';
 import { ServicesComponent } from '../services/services.component';
 import { ContactComponent } from '../contact/contact.component';
 import Swal from 'sweetalert2';
+import { KpopComponent } from "../kpop/kpop.component";
 @Component({
   selector: 'app-home',
-  imports: [PresentationComponent, ServicesComponent, ContactComponent],
+  imports: [PresentationComponent, ServicesComponent, ContactComponent, KpopComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.less'
 })
